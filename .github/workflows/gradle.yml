@@ -33,4 +33,4 @@ jobs:
     - name: gradle permission
       run: chmod +x ./gradlew
     - name: run tests
-      run: ./gradlew test -i
+      run: ./gradlew test -Dselenide.headless=true
