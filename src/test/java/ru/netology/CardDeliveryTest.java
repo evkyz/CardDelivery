@@ -15,15 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 class CardDeliveryTest {
 
-    @BeforeAll
-    static void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeDriverManager.getInstance().setup();
-    }
-
     @Test
     void testStandartDay() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("Иван Иванов");
@@ -35,7 +28,6 @@ class CardDeliveryTest {
 
     @Test
     void testNextDay() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//span[@class=\"icon icon_size_m icon_name_calendar icon_theme_alfa-on-white\"]").click();
@@ -49,7 +41,6 @@ class CardDeliveryTest {
 
     @Test
     void testNoCity() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("");
         $x("//input[@name=\"name\"]").val("Иван Иванов");
@@ -61,7 +52,6 @@ class CardDeliveryTest {
 
     @Test
     void testNoName() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("");
@@ -73,7 +63,6 @@ class CardDeliveryTest {
 
     @Test
     void testNoPhone() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("Иван Иванов");
@@ -85,7 +74,6 @@ class CardDeliveryTest {
 
     @Test
     void testNoChekbox() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("Иван Иванов");
@@ -96,7 +84,6 @@ class CardDeliveryTest {
 
     @Test
     void testBadCity() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Город");
         $x("//*").click();
@@ -109,7 +96,6 @@ class CardDeliveryTest {
 
     @Test
     void testBadName() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("Ivan Ivanov");
@@ -121,7 +107,6 @@ class CardDeliveryTest {
 
     @Test
     void testBadPhone() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@name=\"name\"]").val("Иван Иванов");
@@ -133,7 +118,6 @@ class CardDeliveryTest {
 
     @Test
     void testBadDate() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@placeholder=\"Дата встречи\"]").doubleClick().sendKeys(Keys.BACK_SPACE);
@@ -147,7 +131,6 @@ class CardDeliveryTest {
 
     @Test
     void testNoDate() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Москва");
         $x("//input[@placeholder=\"Дата встречи\"]").doubleClick().sendKeys(Keys.BACK_SPACE);
@@ -160,7 +143,6 @@ class CardDeliveryTest {
 
     @Test
     void testTwoLetters() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Во");
         $x("//span[text()=\"Воронеж\"]").click();
@@ -173,7 +155,6 @@ class CardDeliveryTest {
 
     @Test
     void testDateWeek() {
-        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type=\"text\"]").first().val("Во");
         $x("//span[text()=\"Воронеж\"]").click();
