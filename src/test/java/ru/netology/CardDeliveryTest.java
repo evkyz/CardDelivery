@@ -2,10 +2,12 @@ package ru.netology;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.selector.ByText;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
@@ -14,9 +16,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 class CardDeliveryTest {
 
-    @BeforeAll
-    static void setupClass() {
+    @BeforeEach
+    void setUp() {
         WebDriverManager.chromedriver().setup();
+        ChromeDriverManager.getInstance().setup();
     }
 
     @Test
