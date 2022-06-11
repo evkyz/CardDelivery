@@ -4,6 +4,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.BeforeAll;
 
 import java.time.Duration;
 
@@ -11,6 +13,11 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 class CardDeliveryTest {
+
+    @BeforeAll
+    static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @Test
     void testStandartDay() {
